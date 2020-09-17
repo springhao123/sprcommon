@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>sprServer</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>sprcommon</module>
+        <module>netty</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <spring.version>5.1.6.RELEASE</spring.version>
+        <springboot.version>2.1.4.RELEASE</springboot.version>
+        <lombok.version>1.18.6</lombok.version>
+        <netty.version>4.1.34.Final</netty.version>
+        <trove4j.version>3.0.3</trove4j.version>
+        <protobuf.version>3.4.0</protobuf.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <fastjson.version>1.2.73</fastjson.version>
+        <beanutils.version>1.9.3</beanutils.version>
+        <okhttp.version>3.14.1</okhttp.version>
+        <guava.version>27.1-jre</guava.version>
+        <commons-io.version>2.6</commons-io.version>
+        <httpclient.version>4.5.8</httpclient.version>
+        <commons-lang3.version>3.8</commons-lang3.version>
+        <graalvm.version>19.1.1</graalvm.version>
+        <gson.version>2.7</gson.version>
+        <Java-WebSocket.version>1.3.4</Java-WebSocket.version>
+        <junit.version>4.12</junit.version>
+
+        <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+            </plugin>
+
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-log4j2</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.trove4j</groupId>
+                <artifactId>trove4j</artifactId>
+                <version>${trove4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.graalvm.js</groupId>
+                <artifactId>js</artifactId>
+                <version>${graalvm.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.java-websocket</groupId>
+                <artifactId>Java-WebSocket</artifactId>
+                <version>${Java-WebSocket.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-tools</artifactId>
+                <version>3.3.3.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
