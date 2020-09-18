@@ -24,6 +24,7 @@ public class NioWriteDelay {
 	protected ScheduledThreadPoolExecutor stpe;
 
 	public static int MAX_SEND = 256;
+
 	//延迟多久以后再进行发送 毫秒
 	public final int DelayTimeMILLIS =100;
 

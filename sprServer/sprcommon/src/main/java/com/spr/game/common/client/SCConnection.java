@@ -191,7 +191,7 @@ public class SCConnection implements ISession, ISendData {
 	 * 得到消息时通知
 	 */
 	public void dispatchMessage(Packet message) {
-
+		
 	}
 
 	/**

@@ -258,7 +258,6 @@ public class SSConnection implements ISession, ISendData {
 				limit = writer.limit();
 				r = channel.write(writer);
 				n += r;
-
 				writer.clear();
 				if (r < limit) {
 					return n;

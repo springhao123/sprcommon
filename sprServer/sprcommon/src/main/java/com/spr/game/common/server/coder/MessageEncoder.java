@@ -1,4 +1,4 @@
-package com.spr.game.common.client;
+package com.spr.game.common.server.coder;
 /**
  * @ClassName:
  * @Description 发出数据时编码
